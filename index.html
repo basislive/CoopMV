@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Protected Google Form</title>
+  <style>
+    /* Block text selection */
+    * {
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+    }
+    /* Full-screen iframe */
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Paste your Google Form embed code here -->
+  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdV_XxLmuxcmwdmjRbFSmL_riCvobFzL4nfflBOHqZsLRPWQw/viewform?usp=dialog"></iframe>
+
+  <script>
+    // Block right-click
+    document.addEventListener('contextmenu', (e) => e.preventDefault());
+
+    // Block Ctrl+C/Ctrl+V
+    document.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && ['c', 'C', 'v', 'V'].includes(e.key)) {
+        e.preventDefault();
+        alert('Copy-pasting is disabled!');
+      }
+    });
+  </script>
+</body>
+</html>
